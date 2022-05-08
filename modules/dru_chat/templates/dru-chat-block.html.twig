@@ -1,0 +1,63 @@
+{#
+/**
+* @file
+* Default theme implementation to display a block.
+*
+* @see template_preprocess_block()
+*
+* @ingroup themeable
+*/
+#}
+
+<section id="chat_block">
+  <div class="chat-controls">
+    <div class="user-list-back-btn no-show">
+    </div>
+    <div id="chat-user-name">
+
+    </div>
+    <section>
+      <div class="info">Unread!</div>
+      <div class="notifications">
+        <span class="total">{{ data['total_unread'] }}</span>
+      </div>
+      <div class="chat-state closed"></div>
+    </section>
+  </div>
+  <div id="dru-chat-block">
+    <div class="message-list" id="messages">
+
+
+    </div>
+    <div class="user-list">
+      <div class="user-wrapper">
+        <ul class="users">
+
+          {%  for user in data['users'] %}
+            <li class="user" id="{{ user.id }}">
+
+              {% for unread in data['unread_messages'] if unread['from'] == user.id %}
+                <span class="pending">{{ unread['message_count'] }}</span>
+              {% endfor %}
+
+              <div class="media">
+                <div class="media-left">
+                  <img src="{{ file_url(user.user_picture.entity.fileuri)  }}" alt="" class="media-object"
+                       onerror="this.onerror=null;this.src='{{ dru_chat_missing_image }}';"
+                  />
+                </div>
+                <div class="media-body">
+                  <p class="name">{{ user.displayname }}</p>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{{  attach_library('dru_chat/pusher_chat') }}

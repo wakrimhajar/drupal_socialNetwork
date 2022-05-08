@@ -1,0 +1,342 @@
+$colors: (
+  secondary_bg: #3E5B7B,
+  primary_dark: #304863,
+  secondary_dark: #364F6B,
+  primary_white: #FFFFFF,
+  primary_green: #43DDE6,
+  primay_purple: #9B1CFC,
+  primary_red: #FC5185,
+  faded_white: #EBEBEB,
+  upscaled_white: #f9f9f9,
+  test: rgb(252, 32, 3),
+  login_button: rgb(125,147,0),
+  yellow_button: #FEED00,
+  pink_button: #523350,
+  link_color: rgb(266, 266, 266),
+  header_bg: #5b4954
+);
+
+#dru-chat-block {
+  display: none;
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .no-show {
+    display: none;
+  }
+
+}
+
+
+
+#dru-chat-block.open-view {
+  display: flex;
+  height: 80vh;
+}
+
+#page-wrapper #chat_block {
+  width: 95vw; // @todo breakpoint..
+  padding: .8em;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  //background: #fff;
+  border-radius: .3rem;
+  background: map-get($colors, primary_dark);
+  color: map-get($colors, primary_white);
+
+  p {
+    //overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  .chat-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: .5rem 1rem;
+
+    section {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .chat-controls .opened .info {
+    display: none;
+  }
+
+  .no-show {
+    display: none;
+    //background: green;
+  }
+
+  // show back btn on mobile only
+  .user-list-back-btn {
+    width:2.5em;
+    height:2.5em;
+    background-image:url('../files/arrow-in-circle-icon.svg');
+    background-size:cover;
+    cursor: pointer;
+    position: relative;
+
+  }
+
+  .pending {
+    position: absolute;
+    left: 13px;
+    top: 9px;
+    background: #b600ff;
+    margin: 0;
+    border-radius: 50%;
+    width: 10px;
+    height: 18px;
+    line-height: 18px;
+    padding-left: 5px;
+    color: #ffffff;
+    font-size: 12px;
+  }
+
+  .media-left {
+    margin: 0 10px;
+  }
+  .media-left img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+  }
+
+  .media-body p {
+    margin: 6px 0;
+  }
+
+  .message-list {
+    //width: 90%; // @todo for bigger screebs
+  }
+
+  .message-wrapper {
+    padding: 10px;
+    height: 536px;
+    background: map-get($colors, secondary_dark);
+
+    .messages {
+      min-height: 100%;
+    }
+  }
+
+  .messages {
+
+    .message {
+      display: block;
+      word-break: break-word;
+      margin-bottom: 15px;
+    }
+
+    .message:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+  }
+
+  .received, .sent {
+    width: 85%;
+    //display: inline-block;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+
+  .received {
+    background: map-get($colors, primary_dark);
+    float: right;
+    //text-align: right;
+  }
+  .sent {
+  background: map-get($colors, secondary_bg);
+  }
+
+  .date {
+    color: #777777;
+    font-size: 12px;
+  }
+  .active {
+    background: #eeeeee;
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 15px 0 0 0;
+    //display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #cccccc;
+  }
+  input[type=text]:focus {
+    border: 1px solid #aaaaaa;
+  }
+
+  .read {
+    width:1.5em;
+    height:1.5em;
+    background-image:url('data:image/svg+xml;charset=UTF-8,<svg id="done_all-24px" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path id="Path_1" data-name="Path 1" d="M0,0H24V24H0Z" fill="none"/><path id="Path_2" data-name="Path 2" d="M18,7,16.59,5.59l-6.34,6.34,1.41,1.41Zm4.24-1.41L11.66,16.17,7.48,12,6.07,13.41,11.66,19l12-12ZM.41,13.41,6,19l1.41-1.41L1.83,12Z"/></svg>');
+    background-size:cover;
+  }
+  .unread {
+    width:1.5em;
+    height:1.5em;
+    background-image:url('data:image/svg+xml;charset=UTF-8,<svg id="done-24px" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path id="Path_3" data-name="Path 3" d="M0,0H24V24H0Z" fill="none"/><path id="Path_4" data-name="Path 4" d="M9,16.2,4.8,12,3.4,13.4,9,19,21,7,19.6,5.6Z"/> </svg>');
+    background-size:cover;
+  }
+
+  #chat_missing_image {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="202" height="246" viewBox="0 0 202 246" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="202" height="246" fill="#FFF7F7"/> </svg>');
+  }
+
+  .notifications {
+    width:2.5em;
+    height:2.5em;
+    background-image:url('data:image/svg+xml;charset=UTF-8, <svg id="mark_chat_unread-24px" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect id="Rectangle_2" data-name="Rectangle 2" width="24" height="24" fill="none"/><path id="Path_8" data-name="Path 8" d="M22,6.98V16a2.006,2.006,0,0,1-2,2H6L2,22V4A2.006,2.006,0,0,1,4,2H14.1A5.468,5.468,0,0,0,14,3a4.98,4.98,0,0,0,8,3.98ZM16,3a3,3,0,1,0,3-3A3,3,0,0,0,16,3Z"/></svg>');
+    background-size:cover;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .notifications .total {
+    color: #fff;
+    margin: 0 .3em;
+  }
+
+
+  .chat-state.opened {
+    width:2.5em;
+    height:2.5em;
+    background-image:url('data:image/svg+xml;charset=UTF-8, <svg id="close-24px" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path id="Path_6" data-name="Path 6" d="M0,0H24V24H0Z" fill="none"/><path id="Path_7" data-name="Path 7" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z"/></svg>');
+    background-size:cover;
+    cursor: pointer;
+  }
+  .chat-state.closed {
+    width:2.5em;
+    height:2.5em;
+    background-image:url('../files/maximixe_btn.svg');
+    background-size:cover;
+    cursor: pointer;
+  }
+
+  .message-wrapper,
+  .user-wrapper {
+    //border: 1px solid #dddddd;
+    overflow-y: auto;
+  }
+
+
+  .message-wrapper ul,
+  .user-wrapper ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .name {
+    //color: #0c0d0e;
+    color: map-get($colors, primary_white);
+    font-weight: bold;
+  }
+
+
+  .user-wrapper {
+    /*height: 600px;
+    width: 200px;*/
+
+  }
+
+  .user-wrapper .media {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: .3em;
+  }
+
+  .user-wrapper li {
+
+  }
+
+  .user {
+    cursor: pointer;
+    padding: .3em;
+    position: relative;
+  }
+
+  .user:hover {
+    background: #eeeeee;
+  }
+
+  .user:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media ( min-width: 560px ) {
+
+  #dru-chat-block.open-view {
+    display: grid;
+    grid-template-columns: 1fr 160px;
+  }
+
+  #dru-chat-block,
+  #page-wrapper #chat_block {
+    max-width: 560px; // @todo breakpoint..
+
+    .no-show {
+      display: block;
+      //background: green;
+    }
+
+    .open-view {
+      justify-content:space-between;
+      //background:red;
+    }
+
+    .message-wrapper {
+      //width: 60%;
+      //background: yellow;
+    }
+
+    .messages {
+      //background: red;
+    }
+
+    input[type=text] {
+      //width: inherit;
+    }
+
+    .chat-controls {
+      //justify-content: right;
+      justify-content: space-between;
+    }
+
+    .user-list-back-btn {
+      display: none;
+    }
+  }
+}
+
+/*
+
+
+
+
+
+
+
+
+
+
+*/

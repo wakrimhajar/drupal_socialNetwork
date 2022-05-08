@@ -1,0 +1,14 @@
+chat_libs:
+  version: VERSION
+  css:
+    theme:
+      libs/chat.css: {}
+
+pusher_chat:
+  js:
+    libs/chat.js: { attributes: { defer: true, async: true} }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings

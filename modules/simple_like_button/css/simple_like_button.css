@@ -1,0 +1,8 @@
+.liked .button{
+  color: #0037fd;
+}
+.users_that_liked {
+  color: #a09d9d;
+  font-size: 0.7rem;
+  margin-left: 10px;
+}

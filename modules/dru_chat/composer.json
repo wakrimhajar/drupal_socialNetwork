@@ -1,0 +1,16 @@
+{
+    "name": "drupal/dru_chat",
+    "type": "drupal-module",
+    "description": "Live, realtime chat for drupal",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/dru_chat",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/dru_chat",
+        "source": "http://cgit.drupalcode.org/dru_chat"
+    },
+    "require": {
+        "pusher/pusher-php-server": "^5.0.3"
+    }
+}

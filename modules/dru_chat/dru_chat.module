@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Contains dru_chat.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dru_chat_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dru_chat module.
+    case 'help.page.dru_chat':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Live, realtime chat for drupal') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+function dru_chat_theme() {
+  return [
+    'dru_chat_block' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+      'render element' => 'children',
+      'template' => 'dru-chat-block',
+    ],
+
+    'dru_chat_messages' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+      'render element' => 'children',
+      'template' => 'dru-chat-messages',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function dru_chat_preprocess(&$variables, $hook) {
+  $variables['dru_chat_missing_image'] = file_create_url(drupal_get_path('module', 'dru_chat') . '/images/missing_image.svg');
+}

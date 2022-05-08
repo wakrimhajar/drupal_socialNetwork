@@ -649,8 +649,7 @@ $settings['update_free_access'] = FALSE;
  * Load services definition file.
  */
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
-$settings['cache']['bins']['render'] = 'cache.backend.null';
-$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null'; 
+
 /**
  * Override the default service container class.
  *

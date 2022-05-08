@@ -1,0 +1,25 @@
+<div class="message-wrapper no-show">
+
+    <!-- <h1>{# { data['user_id'] }} #}</h1> -->
+    <ul class="messages">
+        {% for key, message in data['messages'] %}
+            <li class="message clearfix">
+
+                <div class={{ message.from.value.0.target_id == user.id ? 'sent' : 'received' }}>
+                    <p>{{ message.message.value }} </p>
+                    <p class="date">{{ message.created.value|date('d M y, h:i a') }}</p>
+                  {% if message.from.value.0.target_id == user.id %}
+                    <div class={{ message.is_read.value ? 'read' : 'unread' }}></div>
+                  {% endif %}
+
+                </div>
+            </li>
+        {%  endfor %}
+
+    </ul>
+</div>
+
+<div class="input-text dru-chat-message-box no-show">
+    <input type="text" name="message" class="submit">
+</div>
+

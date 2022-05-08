@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Contains simple_like.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function simple_like_button_theme() {
+  return [
+    'block_like_button' => [
+      'variables' => [
+        'vars' => NULL,
+      ],
+      'template' => 'block-like-button',
+    ],
+  ];
+}
+

@@ -1,0 +1,39 @@
+dru_chat.pusher_settings:
+  path: 'admin/dru-chat/pusher-configs'
+  defaults:
+    _form: '\Drupal\dru_chat\Form\PusherConfigForm'
+    _title: 'Pusher Config form'
+  requirements:
+    _permission: 'administer account settings'
+
+dru_chat.messages:
+  path: '/dru-chat/messages/{user}'
+  defaults:
+    _controller: '\Drupal\dru_chat\Controller\MessagesController::getMessages'
+    _title: 'user message'
+  requirements:
+    #_csrf_token: 'TRUE'
+    _permission: 'access content'
+  options:
+    parameters:
+      user:
+        type: entity:user
+
+
+dru_chat.new_messages:
+  path: '/dru-chat/new-message'
+  defaults:
+    _controller: '\Drupal\dru_chat\Controller\MessagesController::newMessage'
+    _title: 'New message'
+  requirements:
+    _csrf_token: 'TRUE'
+    _permission: 'access content'
+
+dru_chat.presence:
+  path: '/dru-chat/presence'
+  defaults:
+    _controller: '\Drupal\dru_chat\Controller\MessagesController::presence'
+    _title: 'presence'
+  requirements:
+    #_csrf_token: 'TRUE'
+    _permission: 'access content'

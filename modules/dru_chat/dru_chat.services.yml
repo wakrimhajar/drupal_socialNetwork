@@ -1,0 +1,7 @@
+services:
+  dru_chat.messages:
+    class: Drupal\dru_chat\Service\Messages
+    arguments: []
+    calls:
+      - [setEntity, ['@entity_type.manager'] ]
+      - [setConfig, ['@config.factory'] ]

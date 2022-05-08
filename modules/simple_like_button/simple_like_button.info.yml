@@ -1,0 +1,10 @@
+name: 'Simple Like Button'
+type: module
+description: 'Simple Like Module'
+core_version_requirement: '^8.8 || ^9'
+package: Social
+
+# Information added by Drupal.org packaging script on 2020-07-11
+version: '1.0.0-beta1'
+project: 'simple_like_button'
+datestamp: 1594460640
