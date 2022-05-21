@@ -4774,7 +4774,7 @@ var __webpack_exports__ = {};
       receiver_id = this.id;
       current_id = drupalSettings.dru_chat.current_id; // ----------- update #chat-user-name ----------------
 
-      document.querySelector('.chat-controls #chat-user-name').innerText = this.querySelector('.name').innerText; // ----------- end of update #chat-user-name ----------------
+      document.querySelector('.chat-controls .chat-user-name').innerText = this.querySelector('.name').innerText; // ----------- end of update #chat-user-name ----------------
       // remove active class from prev if any
 
       var prev_active = document.querySelector('.users .active');
