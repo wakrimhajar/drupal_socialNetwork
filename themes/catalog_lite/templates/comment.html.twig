@@ -85,18 +85,8 @@
     indicator here would break the render cache.
   #}
   <span class="hidden new-indicator" data-comment-timestamp="{{ new_indicator_timestamp }}"></span>
-
-  <div class="comment__content-container">
-    {% if title %}
-      {{ title_prefix }}
-      <h3{{ title_attributes.addClass('title') }}>{{ title }}</h3>
-      {{ title_suffix }}
-    {% endif %}
-    <div{{ content_attributes.addClass('comment__content') }}>
-      {{ content|without('links') }}
-    </div>
     <div class="row">
-      <div class="col-auto">
+      <div class="col-auto mb-4">
         {% if user_picture %}
           <header>
             {{ user_picture }}
@@ -112,6 +102,16 @@
           {% endif %}
         </div>
       </div>
+  <div class="comment__content-container">
+    {% if title %}
+      {{ title_prefix }}
+      <!--h3{{ title_attributes.addClass('title') }}>{{ title }}</h3-->
+      {{ title_suffix }}
+    {% endif %}
+    <div{{ content_attributes.addClass('comment__content') }}>
+      {{ content|without('links') }}
+    </div>
+   
       <div class="col-12">
         {% if content.links %}
           <nav class="comment__links">{{ content.links }}</nav>

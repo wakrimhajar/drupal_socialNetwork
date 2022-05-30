@@ -821,4 +821,8 @@ table tr th {
   border-color: #007989;
   color: #007989;
 }
-
+.img-user-comment{
+  border-radius: 50%!important;
+  height:100px;
+  width: 100px;
+  }

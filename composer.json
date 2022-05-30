@@ -21,6 +21,7 @@
         "drupal/core-recommended": "^9.3",
         "drupal/core-vendor-hardening": "^9.3",
         "drupal/dru_chat": "1.0.x-dev@dev",
+        "drupal/group": "^1.4",
         "phpmailer/phpmailer": "^6.6"
     },
     "conflict": {

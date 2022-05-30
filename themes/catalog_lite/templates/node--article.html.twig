@@ -156,11 +156,11 @@
   {% if author_picture or node.Owner.field_mt_full_name.value or node.Owner.field_mt_signature.value %}
     <div class="node__user-info clearfix">
       {% if author_picture %}
-        <div class="user-picture">
+        <!--div class="user-picture">
           <div{{ author_attributes.removeClass('node__meta-user node__meta-item') }}>
             {{ author_picture }}
           </div>
-        </div>
+        </div-->
       {% endif %}
       {% if node.Owner.field_mt_full_name.value %}
         <div class="user-full-name">
