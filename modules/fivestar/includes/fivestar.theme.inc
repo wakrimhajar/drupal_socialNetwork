@@ -275,7 +275,7 @@ function theme_fivestar_summary($variables) {
       $average_rating_microdata = ($microdata['average_rating']['#attributes']);
     }
     $output .= '<span class="average-rating">';
-    $output .= t("Moyenne: <span {$average_rating_microdata}>@stars</span>", [
+    $output .= t("Average: <span {$average_rating_microdata}>@stars</span>", [
       '@stars' => $average_stars,
     ]);
     $output .= '</span>';

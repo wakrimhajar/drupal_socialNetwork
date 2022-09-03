@@ -367,7 +367,7 @@ class PhpMailerSmtp extends PHPMailer implements MailInterface, ContainerFactory
       unset($message['headers']);
 
       // Parse 'From' address.
-      $from = $this->parseAddresses($headers['from'], true, self::CHARSET_UTF8);
+      $from = $this->parseAddresses($headers['from'], TRUE, self::CHARSET_UTF8);
       $from = reset($from);
       $this->From = $from['address'];
 

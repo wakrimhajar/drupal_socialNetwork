@@ -58,11 +58,11 @@ function votingapi_reaction_uninstall() {
  */
 function _votingapi_reaction_get_reactions() {
   return [
-    "reaction_angry" => "I'm angry",
-    "reaction_laughing" => "I'm laughing",
-    "reaction_like" => "I like this",
-    "reaction_love" => "I love this",
-    "reaction_sad" => "I'm sad",
-    "reaction_surprised" => "I'm surprised",
+    "reaction_angry" => "En colère",
+    "reaction_laughing" => "Je rigole",
+    "reaction_like" => "J'aime",
+    "reaction_love" => "J'adore",
+    "reaction_sad" => "Triste",
+    "reaction_surprised" => "Surpris",
   ];
 }

@@ -163,7 +163,7 @@
 	margin: 2px 0 0;/*15px 0 0*/
 	outline: none;
 	padding: 5px 20px;
-	width: 91%;
+	width: 100%;
 }
 
 .input-text .submit:focus {
@@ -263,7 +263,7 @@
 @media (min-width:560px) {
 	.dru-chat-block.open-view {
 		display: grid;
-		grid-template-columns: 1fr 160px;
+		grid-template-columns: 1fr 185px;
 	}
 
 	.dru-chat-block,
